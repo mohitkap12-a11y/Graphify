@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "graphify-local-platform"
+version = "0.1.0"
+description = "Self-hosted Graphify repository knowledge and MCP service"
+requires-python = ">=3.11"
+dependencies = ["fastapi>=0.110", "uvicorn>=0.29", "pydantic>=2.6"]
+
+[project.scripts]
+graphify-platform = "graphify_platform.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["graphify_platform*"]
+
+[tool.setuptools.package-data]
+graphify_platform = ["web/*"]
